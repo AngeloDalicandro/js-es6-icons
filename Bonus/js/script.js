@@ -135,6 +135,20 @@ printCardsDom(allIcons, cardContainer);
 // Seleziono la select
 const typeSelector = document.getElementById('icon-type');
 
+// Creo un array dove salvare i tipi di icone e lo popolo con una funzione
+const iconTypes = getSpecificKeys(allIcons);
+
+// Seleziono la select
+const selectMenu = document.getElementById('icon-type');
+
+// Aggiungo a mano la value all
+selectMenu.innerHTML += `<option value="all">All</option>`
+
+// Con un ciclo popolo il select menù
+iconTypes.forEach((thisType) => {
+	selectMenu.innerHTML += `<option value="${thisType}">${thisType}</option>`;
+})
+
 // Imposto cosa accade al cambio della select
 typeSelector.addEventListener('change',
 	function() {
@@ -212,4 +226,18 @@ function changeColor(anArray) {
 	anArray.forEach((thisIcon) => {
 		thisIcon.color = getRandomHexColor();
 	})
+}
+
+// FUNZIONE PER ESTRARRE I TIPI 
+function getSpecificKeys(inputArray ) {
+	const outputArray = [];
+	inputArray.forEach((thisIcon) => {
+		
+		const thisType = thisIcon.type;
+		if(!outputArray.includes(thisType)) {
+			outputArray.push(thisType)
+		} 
+	})
+
+	return outputArray;
 }
