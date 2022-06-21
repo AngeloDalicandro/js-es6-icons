@@ -146,7 +146,7 @@ selectMenu.innerHTML += `<option value="all">All</option>`
 
 // Con un ciclo popolo il select menù
 iconTypes.forEach((thisType) => {
-	selectMenu.innerHTML += `<option value="${thisType}">${thisType}</option>`;
+	selectMenu.innerHTML += `<option value="${thisType}">${capitalizeFirstLetter(thisType)}</option>`;
 })
 
 // Imposto cosa accade al cambio della select
@@ -240,4 +240,9 @@ function getSpecificKeys(inputArray ) {
 	})
 
 	return outputArray;
+}
+
+// FUNZIONE PER FARE L'UPPERCASE DELLA PRIMA LETTERA DI UNA PAROLA
+function capitalizeFirstLetter (aWord) {
+	return aWord.charAt(0).toUpperCase() + aWord.slice(1);
 }
