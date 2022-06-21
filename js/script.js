@@ -180,3 +180,31 @@ function cardFilter (anArray, aContainer, aFilter) {
 
 	printCardsDom(filteredArray, aContainer);
 }
+
+// FUNZIONE PER GENERARE UN NUMERO RANDOM ( Da W3schools )
+function getRndInteger(min, max) {
+	return Math.floor(Math.random() * (max - min) ) + min;
+  }
+
+// FUNZIONE PER GENERARE UN COLORE RANDOM
+function getRandomHexColor() {
+	// Creo un array con i valori per costruire gli HEX
+	const hexArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+
+	let myColor = '#';
+
+	// Imposto un ciclo con 6 ripetizioni per generare randomicamente i dati del formato hex
+	for(let i = 1; i <= 6; i++) {
+		myColor += hexArray[getRndInteger(0, hexArray.length - 1)];
+		console.log(myColor)
+	}
+
+	return myColor;
+}
+
+// FUNZIONE PER CAMBIARE COLORE IN BASE AL TIPO
+function changeColor(anArray) {
+	anArray.forEach((thisIcon) => {
+		thisIcon.color = getRandomHexColor();
+	})
+}
