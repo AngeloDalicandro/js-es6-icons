@@ -136,7 +136,7 @@ printCardsDom(allIcons, cardContainer);
 const typeSelector = document.getElementById('icon-type');
 
 // Creo un array dove salvare i tipi di icone e lo popolo con una funzione
-const iconTypes = getSpecificKeys(allIcons);
+const iconTypes = getTypes(allIcons);
 
 // Seleziono la select
 const selectMenu = document.getElementById('icon-type');
@@ -229,11 +229,11 @@ function changeColor(anArray) {
 }
 
 // FUNZIONE PER ESTRARRE I TIPI 
-function getSpecificKeys(inputArray, key) {
+function getTypes (inputArray) {
 	const outputArray = [];
 	inputArray.forEach((thisIcon) => {
 		
-		const thisKey = thisIcon.key;
+		const thisKey = thisIcon.type;
 		if(!outputArray.includes(thisKey)) {
 			outputArray.push(thisKey)
 		} 
