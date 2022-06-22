@@ -229,13 +229,13 @@ function changeColor(anArray) {
 }
 
 // FUNZIONE PER ESTRARRE I TIPI 
-function getSpecificKeys(inputArray ) {
+function getSpecificKeys(inputArray, key) {
 	const outputArray = [];
 	inputArray.forEach((thisIcon) => {
 		
-		const thisType = thisIcon.type;
-		if(!outputArray.includes(thisType)) {
-			outputArray.push(thisType)
+		const thisKey = thisIcon.key;
+		if(!outputArray.includes(thisKey)) {
+			outputArray.push(thisKey)
 		} 
 	})
 
